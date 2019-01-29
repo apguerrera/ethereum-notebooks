@@ -1,5 +1,5 @@
 from web3 import Web3
-from scripts.functions import *
+from scripts.whitelist import *
 
 if __name__ == '__main__':
     ipc_path = '../testchain/geth.ipc'
