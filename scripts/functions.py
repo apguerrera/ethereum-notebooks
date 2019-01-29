@@ -1,5 +1,5 @@
 from web3 import Web3
-import solc
+import solcx
 
 
 # TODO: move util functions to separate file
@@ -15,7 +15,7 @@ def account_from_key(w3, key_path, passphrase):
 
 # compile contract using solc and return contract interface
 def compile_contract(path, name):
-    compiled_contacts = solc.compile_files([path])
+    compiled_contacts = solcx.compile_files([path])
     contract_interface = compiled_contacts['{}:{}'.format(path, name)]
     return contract_interface
 

@@ -1,4 +1,4 @@
-pragma solidity ^0.5.03;
+pragma solidity ^0.5.3;
 
 import "./Owned.sol";
 
