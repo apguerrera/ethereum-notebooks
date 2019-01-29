@@ -1,4 +1,4 @@
-pragma solidity ^0.4.25;
+pragma solidity ^0.5.3;
 
 // ----------------------------------------------------------------------------
 // BokkyPooBah's White List
@@ -146,7 +146,7 @@ contract WhiteList is WhiteListInterface, Controlled {
         return whiteList[account];
     }
 
-    function add(address[] accounts) public onlyController {
+    function add(address[] memory accounts) public onlyController {
         require(accounts.length != 0);
         for (uint i = 0; i < accounts.length; i++) {
             require(accounts[i] != address(0));
@@ -156,7 +156,7 @@ contract WhiteList is WhiteListInterface, Controlled {
             }
         }
     }
-    function remove(address[] accounts) public onlyController {
+    function remove(address[] memory accounts) public onlyController {
         require(accounts.length != 0);
         for (uint i = 0; i < accounts.length; i++) {
             require(accounts[i] != address(0));

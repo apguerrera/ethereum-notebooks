@@ -1,4 +1,5 @@
 
 __pycache__/
 
-testchain/geth/chaindata/
+testchain/geth/
+.ipynb_checkpoints/
