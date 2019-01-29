@@ -1,7 +1,6 @@
 from web3 import Web3
 from scripts.util import *
 
-
 if __name__ == '__main__':
     ipc_path = '../testchain/geth.ipc'
     w3 = Web3(Web3.IPCProvider(ipc_path))
@@ -23,4 +22,10 @@ if __name__ == '__main__':
     contract = get_contract(w3, contract_address, contract_interface['abi'])
 
     tx_hash = transact_function(w3, account, contract, 'add', [account.address])
-    print(tx_hash)
+    w3.eth.waitForTransactionReceipt(tx_hash)
+
+    in_white_list1 = call_function(account, contract, 'isInWhiteList', account.address)
+    in_white_list2 = call_function(account, contract, 'isInWhiteList', w3.eth.accounts[3])
+
+    print(in_white_list1)  # should be in white list
+    print(in_white_list2)  # should not be in white list

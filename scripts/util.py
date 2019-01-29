@@ -45,8 +45,13 @@ def get_contract(w3, address, abi):
 
 
 # make transaction to contract invoking function, return transaction hash
-def transact_function(w3, account, contract, function_name, args):
-    transaction = contract.functions[function_name](args).buildTransaction({
+def transact_function(w3, account, contract, function_name, args=None):
+    if args:
+        transactor = contract.functions[function_name](args)
+    else:
+        transactor = contract.functions[function_name]()
+
+    transaction = transactor.buildTransaction({
         'nonce': w3.eth.getTransactionCount(account.address),
         'from': account.address
     })
@@ -57,4 +62,8 @@ def transact_function(w3, account, contract, function_name, args):
 
 # make call to contract function, return the result of call
 def call_function(account, contract, function_name, args=None):
-    return contract.functions[function_name](args).call({'from': account.address})
+    if args:
+        caller = contract.functions[function_name](args)
+    else:
+        caller = contract.functions[function_name]()
+    return caller.call({'from': account.address})
