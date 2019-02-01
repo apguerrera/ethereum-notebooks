@@ -1,5 +1,7 @@
 from web3 import Web3
-from scripts.whitelist import *
+
+from scripts.util import account_from_key, wait_event
+from scripts.whitelist import deploy_whitelist, add_to_list, add_controller
 
 if __name__ == '__main__':
     ipc_path = '../testchain/geth.ipc'

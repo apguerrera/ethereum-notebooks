@@ -1,4 +1,4 @@
-from scripts.util import *
+from scripts.util import deploy_contract, wait_contract_address, get_contract, call_function, transact_function
 
 
 # deploy Whitelist contract and return contract object

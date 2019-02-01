@@ -45,7 +45,7 @@ def wait_contract_address(w3, tx_hash):
     return created_contract_address(w3, tx_hash)
 
 
-# returns contract object using its address and ABI
+# return contract object using its address and ABI
 def get_contract(w3, address, abi):
     return w3.eth.contract(address=address, abi=abi)
 
